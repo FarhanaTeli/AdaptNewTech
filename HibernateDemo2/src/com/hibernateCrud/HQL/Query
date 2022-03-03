@@ -1,0 +1,42 @@
+mysql> use hqldatabase;
+Database changed
+mysql> create table Persons (
+    -> personId int not null auto_increment,
+    -> firstName varchar(25) not null,
+    -> lastName varchar(25) not null,
+    -> address varchar(25) not null,
+    -> City varchar(25) not null,
+    -> primary key (personId)
+    -> );
+Query OK, 0 rows affected (0.39 sec)
+
+mysql> desc Persons;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| personId  | int         | NO   | PRI | NULL    | auto_increment |
+| firstName | varchar(25) | NO   |     | NULL    |                |
+| lastName  | varchar(25) | NO   |     | NULL    |                |
+| address   | varchar(25) | NO   |     | NULL    |                |
+| City      | varchar(25) | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)
+mysql> insert into Persons (personId, firstName, lastName, address, City) values
+    -> (10,'Clover','Tom','Suite 3B','USA'),
+    -> (11,'Wilman','Kala','Keskuskatu','Helsinki'),
+    -> (12,'Wolski','Zbyszek','Filtrowa','Walla'),
+    -> (13,'Cardinal','Tom','Skagen','Stavanger')
+    -> ;
+Query OK, 4 rows affected (0.31 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from Persons;
++----------+-----------+----------+------------+-----------+
+| personId | firstName | lastName | address    | City      |
++----------+-----------+----------+------------+-----------+
+|       10 | Clover    | Tom      | Suite 3B   | USA       |
+|       11 | Wilman    | Kala     | Keskuskatu | Helsinki  |
+|       12 | Wolski    | Zbyszek  | Filtrowa   | Walla     |
+|       13 | Cardinal  | Tom      | Skagen     | Stavanger |
++----------+-----------+----------+------------+-----------+
+4 rows in set (0.01 sec)
